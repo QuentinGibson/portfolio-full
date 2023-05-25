@@ -33,11 +33,11 @@ function Post({ blogPost }: { blogPost: any }) {
       <div className="px-4 flex flex-col gap-6 py-8">
         <div className="flex gap-4 z-10 font-serif items-center">
           <p className="font-bold">{category}</p>
-          <p className="text-lightDark font-thin">{displayDate}</p>
+          <p className="text-lightDark dark:text-slate-300 font-thin">{displayDate}</p>
         </div>
         <div className="flex z-10">
           <Link prefetch="intent" to={`/blog/${blogPost.slug}`}>
-            <h1 className="text-3xl font-bold text-dark underline-offset-2 hover:underline">{title}</h1>
+            <h1 className="text-3xl font-bold text-dark dark:text-slate-100 underline-offset-2 hover:underline">{title}</h1>
           </Link>
         </div>
         <div className="flex z-10">
@@ -54,9 +54,9 @@ function Post({ blogPost }: { blogPost: any }) {
 export default function BlogRoute() {
   const { posts } = useLoaderData<typeof loader>()
   return (
-    <main>
-      <h1 className="text-5xl text-dark bg-cream py-8 px-4">Blog</h1>
-      <section className="bg-cream text-dark">
+    <main className="bg-cream dark:bg-slate-800">
+      <h1 className="text-5xl text-dark dark:text-slate-100  py-8 px-4">Blog</h1>
+      <section className=" text-dark dark:text-slate-100">
         <p className="px-4 mb-8">Check out some of my writing! I will update weekly</p>
         <div className="grid">
           {posts.map((post) => (

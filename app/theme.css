@@ -1,5 +1,9 @@
-html {
+html.light{
   background-color: #ebe8e0;
+}
+
+html.dark {
+  background-color: black;
 }
 @font-face {
   font-family: 'Sorts Mill Goudy';

@@ -17,21 +17,21 @@ export default function IndexRoute() {
   return (
     <main className="relative h-full">
       <div className='grid md:grid-cols-2'>
-        <section className='py-8 bg-cream md:order-2'>
+        <section className='py-8 bg-cream dark:bg-slate-800 md:order-2'>
           <div className='relative flex justify-center'>
             <img src="/img/nobg-me.png" className='object-fill w-full z-20' alt="A me smiling" />
             <img className='absolute bottom-0 z-10 w-full' src="/img/art.svg" alt="" />
           </div>
         </section>
-        <section className="flex flex-col gap-2 w-full bg-cream py-8">
+        <section className="flex flex-col gap-2 w-full bg-cream dark:bg-slate-800 py-8">
           <div className='px-4'>
-            <h1 className="font-thin font-serif uppercase text-lightDark md:text-5xl">Full stack Web Developer</h1>
-            <h2 className='text-6xl leading-[54px] text-dark md:text-9xl md:leading-none lg: mt-4'>Quentin <br /> Gibson</h2>
+            <h1 className="font-thin font-serif uppercase text-lightDark md:text-5xl dark:text-slate-400">Full stack Web Developer</h1>
+            <h2 className='text-6xl leading-[54px] text-dark md:text-9xl md:leading-none lg: mt-4 dark:text-slate-200'>Quentin <br /> Gibson</h2>
           </div>
           <div className="flex flex-col">
             <div className='ml-16 border-l border-dark pl-4 font-serif'>
-              <p className='leading-6 text-lightDark max-w-[300px] my-4 text-base md:text-2xl'>I am a full stack developer based in College Park, GA. I enjoy creating new experiences. I love video games, basketball, and music.</p>
-              <div className="flex gap-3 text-lightDark">
+              <p className='leading-6 text-lightDark max-w-[300px] my-4 text-base md:text-2xl dark:text-slate-100'>I am a full stack developer based in College Park, GA. I enjoy creating new experiences. I love video games, basketball, and music.</p>
+              <div className="flex gap-3 text-lightDark dark:text-slate-400">
                 <Link target='_blank' to="https://github.com/QuentinGibson">
                   <GrGithub className='text-4xl' />
                 </Link>
@@ -43,16 +43,16 @@ export default function IndexRoute() {
                 </Link>
               </div>
               <div className="flex flex-col my-8 md:text-2xl">
-                <p className='font-thin  text-lightDark'>Born In</p>
-                <h3 className='font-bold '>College Park, Ga</h3>
+                <p className='font-thin  text-lightDark dark:text-slate-400'>Born In</p>
+                <h3 className='font-bold dark:text-slate-100'>College Park, Ga</h3>
               </div>
               <div className="flex flex-col my-8 md:text-2xl">
-                <p className='font-thin text-lightDark'>Experience</p>
-                <h3 className='font-bold '>5+ years</h3>
+                <p className='font-thin text-lightDark dark:text-slate-400'>Experience</p>
+                <h3 className='font-bold dark:text-slate-100'>5+ years</h3>
               </div>
               <div className="flex flex-col my-8 md:text-2xl">
-                <p className='font-thin text-lightDark'>Birthday</p>
-                <h3 className='font-bold '>November 29</h3>
+                <p className='font-thin text-lightDark dark:text-slate-400'>Birthday</p>
+                <h3 className='font-bold dark:text-slate-100'>November 29</h3>
               </div>
             </div>
           </div>
@@ -60,32 +60,32 @@ export default function IndexRoute() {
 
       </div>
 
-      <section className='py-8 bg-cream px-4'>
-        <h1 className='text-5xl text-dark mb-4 md:text-8xl md:mb-8'>About Me</h1>
+      <section className='py-8 bg-cream dark:bg-slate-800 px-4'>
+        <h1 className='text-5xl text-dark mb-4 md:text-8xl md:mb-8 dark:text-slate-200'>About Me</h1>
         <div className='md:grid-cols-2 grid gap-4'>
           <div className="grid grid-cols-2 gap-4 font-serif pb-4 md:grid-cols-2 md:pb-8 md:grid-rows-2">
             <div className="flex flex-col gap-1 items-center break-words">
               <HiUsers className='text-4xl text-[#ff8059]' />
-              <p className="font-bold text-2xl text-dark">10</p>
-              <h2 className="text-center font-light text-lightDark">Happy Customers</h2>
+              <p className="font-bold text-2xl text-dark dark:text-slate-100">10</p>
+              <h2 className="text-center font-light text-lightDark dark:text-slate-400">Happy Customers</h2>
             </div>
             <div className="flex flex-col gap-1 items-center break-words">
               <HiChip className='text-3xl text-[#ff8059]' />
-              <p className="font-bold text-2xl text-dark">1</p>
-              <h2 className="text-center font-light text-lightDark">Hackathons</h2>
+              <p className="font-bold text-2xl text-dark dark:text-slate-100">1</p>
+              <h2 className="text-center font-light text-lightDark dark:text-slate-400">Hackathons</h2>
             </div>
             <div className="flex flex-col gap-1 items-center break-words">
               <HiCubeTransparent className='text-4xl text-[#ff8059]' />
-              <p className="font-bold text-2xl text-dark">4</p>
-              <h2 className="text-center font-light text-lightDark">Remix-Run Projects</h2>
+              <p className="font-bold text-2xl text-dark dark:text-slate-100">4</p>
+              <h2 className="text-center font-light text-lightDark dark:text-slate-400">Remix-Run Projects</h2>
             </div>
             <div className="flex flex-col gap-1 items-center break-words">
               <HiCreditCard className='text-4xl text-[#ff8059]' />
-              <p className="font-bold text-2xl text-dark">3</p>
-              <h2 className="text-center font-light text-lightDark">Shopify Stores</h2>
+              <p className="font-bold text-2xl text-dark dark:text-slate-100">3</p>
+              <h2 className="text-center font-light text-lightDark dark:text-slate-400">Shopify Stores</h2>
             </div>
           </div>
-          <div className="flex flex-col font-serif text-lightDark leading-6 font-light pb-4 md:text-lg gap-4">
+          <div className="flex flex-col font-serif text-lightDark leading-6 font-light pb-4 md:text-lg gap-4 dark:text-slate-100">
             <p className=''>
               My name is Quentin Gibson, a passionate developer with an unwavering commitment to excellence. My journey in the world of programming began in 2014 and since then, I have been immersing myself in coding challenges. Every day I make sure to spend time creating a meaningful commit in order to continously get better. I have maintained this commitment even though no one has hired me.
             </p>
@@ -95,11 +95,11 @@ export default function IndexRoute() {
         </div>
 
 
-        <Link to="/contact" prefetch="intent" className='inline-block mt-8 px-8 py-3 font-bold font-serif border-2 border-[#ff8059] rounded-lg hover:bg-[#ff8059] hover:scale-105 transition-all duration-150'>
+        <Link to="/contact" prefetch="intent" className='inline-block mt-8 px-8 py-3 font-bold font-serif border-2 border-[#ff8059] rounded-lg hover:bg-[#ff8059] hover:scale-105 transition-all duration-150 dark:text-slate-100'>
           Contact Me
         </Link>
         <div className='mt-8'>
-          <img className="max-w-[300px]" src="/img/signature.svg" alt="" />
+          <img className="max-w-[300px] dark:invert dark:filter" src="/img/signature.svg" alt="" />
         </div>
       </section>
       {/* <Canvas>

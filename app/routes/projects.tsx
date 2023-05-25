@@ -30,13 +30,13 @@ function Work({ project }: { project: Project }) {
   return (
     <article className="px-4">
       <Link prefetch="intent" to={`/projects/${project.slug}`}>
-        <div className="flex flex-col gap-6 text-dark justify-center items-center md:grid md:grid-cols-2">
+        <div className="flex flex-col gap-6 text-dark dark:text-slate-100 justify-center items-center md:grid md:grid-cols-2">
           <div className="flex">
             <img className="w-full" src={project.image} alt="" />
           </div>
           <div className="flex flex-col">
             <h2 className="text-4xl">{project.title}</h2>
-            <div className="font-serif font-thin text-lightDark flex flex-col mt-4">
+            <div className="font-serif font-thin text-lightDark dark:text-slate-300 flex flex-col mt-4">
               <p>{project.type}</p>
             </div>
           </div>
@@ -55,10 +55,10 @@ export const loader = async ({ request, params }: LoaderArgs) => {
 export default function ProjectsRoute() {
   const { projects } = useLoaderData<typeof loader>();
   return (
-    <main className="bg-cream">
+    <main className="bg-cream dark:bg-slate-800">
       <div className="max-w-screen-md mx-auto">
-        <h1 className="text-5xl text-dark  py-8 px-4">Projects</h1>
-        <section className=" text-dark">
+        <h1 className="text-5xl text-dark dark:text-slate-100 py-8 px-4">Projects</h1>
+        <section className=" text-dark dark:text-slate-100">
           <p className="px-4 mb-8"> A Collection of my favorites project I’ve designed recently. Featured Projects. </p>
           <div className="grid gap-8">
             {projects.map((project) => (

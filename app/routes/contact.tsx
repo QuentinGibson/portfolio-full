@@ -16,14 +16,14 @@ export function meta({ matches }: { matches: any }) {
 export default function ContactRoute() {
   const contactFetcher = useFetcher();
   return (
-    <main className="bg-cream">
+    <main className="bg-cream dark:bg-slate-800">
       <div className="max-w-screen-md mx-auto">
-        <h1 className="text-5xl text-dark  py-8 px-4">Contact</h1>
+        <h1 className="text-5xl text-dark  py-8 px-4 dark:text-slate-100">Contact</h1>
         <div className="flex flex-col  font-serif py-8">
           <div className="flex flex-col px-4">
             <Link to="mailto:quentingibson94@gmail.com">
               <HiAtSymbol className="text-4xl text-[#ff8059]" />
-              <p className="font-bold text-lg">quentingibson94@gmail.com</p>
+              <p className="font-bold text-2xl font-sans dark:text-slate-100">quentingibson94@gmail.com</p>
             </Link>
           </div>
         </div>
@@ -31,25 +31,25 @@ export default function ContactRoute() {
           <contactFetcher.Form method="POST" className="font-serif">
             <div className="flex flex-col px-4 gap-6">
               <div className="flex flex-col">
-                <label htmlFor="name" className="font-bold">Name</label>
+                <label htmlFor="name" className="font-bold dark:text-slate-100">Name</label>
                 {contactFetcher.data && contactFetcher.data.error.name &&
                   <p className="text-red-500">{contactFetcher.data.error.name}</p>}
-                <input type="text" name="name" id="name" placeholder="Enter your name here" className="py-3 px-8 text-lightDark font-thin bg-cream border border-lightDark rounded mt-2" />
+                <input type="text" name="name" id="name" placeholder="Enter your name here" className="py-3 px-8 text-lightDark dark:text-slate-300 font-thin bg-cream dark:bg-slate-800 border border-lightDark dark:border-slate-400 rounded mt-2" />
               </div>
               <div className="flex flex-col">
-                <label htmlFor="email" className="font-bold">Email Address</label>
+                <label htmlFor="email" className="font-bold dark:text-slate-100">Email Address</label>
                 {contactFetcher.data && contactFetcher.data.error.email &&
                   <p className="text-red-500">{contactFetcher.data.error.email}</p>}
-                <input type="email" name="email" id="email" placeholder="Enter your email address" className="py-3 px-8 text-lightDark font-thin bg-cream border border-lightDark rounded mt-2" />
+                <input type="email" name="email" id="email" placeholder="Enter your email address" className="py-3 px-8 text-lightDark dark:text-slate-300 font-thin bg-cream dark:bg-slate-800 border border-lightDark dark:border-slate-400 rounded mt-2" />
               </div>
               <div className="flex flex-col">
-                <label htmlFor="message" className="font-bold">Message</label>
+                <label htmlFor="message" className="font-bold dark:text-slate-100">Message</label>
                 {contactFetcher.data && contactFetcher.data.error.message &&
                   <p className="text-red-500">{contactFetcher.data.error.message}</p>}
-                <textarea name="message" id="message" placeholder="Enter your message here" className="py-3 px-8 text-lightDark font-thin bg-cream border border-lightDark rounded mt-2 resize-y h-48" />
+                <textarea name="message" id="message" placeholder="Enter your message here" className="py-3 px-8 text-lightDark dark:text-slate-300 font-thin bg-cream dark:bg-slate-800 border border-lightDark dark:border-slate-400 rounded mt-2 resize-y h-48" />
               </div>
               <div className="flex">
-                <button type="submit" className="px-6 py-2 border border-[#ff8059] rounded mb-8 hover:bg-[#ff8059]">Submit</button>
+                <button type="submit" className="px-6 py-2 border border-[#ff8059] rounded mb-8 hover:bg-[#ff8059] dark:text-slate-300">Submit</button>
               </div>
             </div>
           </contactFetcher.Form>

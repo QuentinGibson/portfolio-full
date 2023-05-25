@@ -26,8 +26,8 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <>
-      <header className=" flex flex-col justify-between items-center py-4 bg-cream border-b border-[#8c805e] px-4">
-        <div className="flex gap-4 justify-between w-full item-center">
+      <header className=" flex flex-col justify-between items-center py-4 bg-cream dark:bg-slate-800 border-b border-[#8c805e] dark:border-slate-300 px-4">
+        <div className="flex gap-4 justify-between w-full item-center dark:text-slate-100">
           <div>
             <Link prefetch="intent" to="/">
               <h1 className="text-2xl">Quentin</h1>
@@ -67,8 +67,8 @@ export default function Layout({ children }: LayoutProps) {
         }
       </header>
       {children}
-      <footer className="border-t border-[#8c805e]">
-        <div className="flex flex-col gap-4 bg-cream py-8 items-center font-serif text-center">
+      <footer className="border-t border-[#8c805e] dark:border-slate-300">
+        <div className="flex flex-col gap-4 bg-cream dark:bg-slate-800 py-8 items-center font-serif text-center dark:text-slate-100">
           <div className="flex gap-4 text-4xl ">
             <Link target="_blank" to={"https://github.com/QuentinGibson"}>
               <GrGithub />
