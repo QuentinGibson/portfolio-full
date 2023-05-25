@@ -1,7 +1,6 @@
-import { LoaderArgs } from "@remix-run/node";
+import type { LoaderArgs } from "@remix-run/node";
 import invariant from "tiny-invariant";
 import { getContactById } from "~/models/contact.server";
-import ContactRoute from "./contact";
 import { Link, useLoaderData } from "@remix-run/react";
 import { BsArrowLeft } from "react-icons/bs";
 

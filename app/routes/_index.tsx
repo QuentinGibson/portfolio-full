@@ -25,20 +25,20 @@ export default function IndexRoute() {
         </section>
         <section className="flex flex-col gap-2 w-full bg-cream py-8">
           <div className='px-4'>
-            <h1 className="font-thin font-serif uppercase text-lightDark md:text-5xl">Fullstack Web Developer</h1>
-            <h2 className='text-6xl leading-[54px] text-dark md:text-9xl md:leading-none'>Quentin <br /> Gibson</h2>
+            <h1 className="font-thin font-serif uppercase text-lightDark md:text-5xl">Full stack Web Developer</h1>
+            <h2 className='text-6xl leading-[54px] text-dark md:text-9xl md:leading-none lg: mt-4'>Quentin <br /> Gibson</h2>
           </div>
           <div className="flex flex-col">
             <div className='ml-16 border-l border-dark pl-4 font-serif'>
-              <p className='leading-6 text-lightDark max-w-[300px] my-4 text-base md:text-2xl'>Im a fullstack developer based in College Park, Ga and I enjoy playing with React. I love video games, basketball, and music.</p>
+              <p className='leading-6 text-lightDark max-w-[300px] my-4 text-base md:text-2xl'>I am a full stack developer based in College Park, GA. I enjoy creating new experiences. I love video games, basketball, and music.</p>
               <div className="flex gap-3 text-lightDark">
-                <Link to="https://github.com/QuentinGibson">
+                <Link target='_blank' to="https://github.com/QuentinGibson">
                   <GrGithub className='text-4xl' />
                 </Link>
-                <Link to="https://twitter.com/quent_made_it">
+                <Link target='_blank' to="https://twitter.com/quent_made_it">
                   <GrTwitter className='text-4xl' />
                 </Link>
-                <Link to="https://www.youtube.com/channel/UCsX8Ahu9O9dmFyoV_fgoeaw">
+                <Link target='_blank' to="https://www.youtube.com/channel/UCsX8Ahu9O9dmFyoV_fgoeaw">
                   <GrYoutube className='text-4xl' />
                 </Link>
               </div>
@@ -48,7 +48,7 @@ export default function IndexRoute() {
               </div>
               <div className="flex flex-col my-8 md:text-2xl">
                 <p className='font-thin text-lightDark'>Experience</p>
-                <h3 className='font-bold '>10+ years</h3>
+                <h3 className='font-bold '>5+ years</h3>
               </div>
               <div className="flex flex-col my-8 md:text-2xl">
                 <p className='font-thin text-lightDark'>Birthday</p>
@@ -62,35 +62,39 @@ export default function IndexRoute() {
 
       <section className='py-8 bg-cream px-4'>
         <h1 className='text-5xl text-dark mb-4 md:text-8xl md:mb-8'>About Me</h1>
-        <div className="grid grid-cols-2 gap-4 font-serif pb-4 md:grid-cols-4 md:pb-8">
-          <div className="flex flex-col gap-1 items-center break-words">
-            <HiUsers className='text-4xl text-[#ff8059]' />
-            <p className="font-bold text-2xl text-dark">10</p>
-            <h2 className="text-center font-light text-lightDark">Happy Customers</h2>
+        <div className='md:grid-cols-2 grid gap-4'>
+          <div className="grid grid-cols-2 gap-4 font-serif pb-4 md:grid-cols-2 md:pb-8 md:grid-rows-2">
+            <div className="flex flex-col gap-1 items-center break-words">
+              <HiUsers className='text-4xl text-[#ff8059]' />
+              <p className="font-bold text-2xl text-dark">10</p>
+              <h2 className="text-center font-light text-lightDark">Happy Customers</h2>
+            </div>
+            <div className="flex flex-col gap-1 items-center break-words">
+              <HiChip className='text-3xl text-[#ff8059]' />
+              <p className="font-bold text-2xl text-dark">1</p>
+              <h2 className="text-center font-light text-lightDark">Hackathons</h2>
+            </div>
+            <div className="flex flex-col gap-1 items-center break-words">
+              <HiCubeTransparent className='text-4xl text-[#ff8059]' />
+              <p className="font-bold text-2xl text-dark">4</p>
+              <h2 className="text-center font-light text-lightDark">Remix-Run Projects</h2>
+            </div>
+            <div className="flex flex-col gap-1 items-center break-words">
+              <HiCreditCard className='text-4xl text-[#ff8059]' />
+              <p className="font-bold text-2xl text-dark">3</p>
+              <h2 className="text-center font-light text-lightDark">Shopify Stores</h2>
+            </div>
           </div>
-          <div className="flex flex-col gap-1 items-center break-words">
-            <HiChip className='text-3xl text-[#ff8059]' />
-            <p className="font-bold text-2xl text-dark">1</p>
-            <h2 className="text-center font-light text-lightDark">Hackathons</h2>
-          </div>
-          <div className="flex flex-col gap-1 items-center break-words">
-            <HiCubeTransparent className='text-4xl text-[#ff8059]' />
-            <p className="font-bold text-2xl text-dark">4</p>
-            <h2 className="text-center font-light text-lightDark">Remix-Run Projects</h2>
-          </div>
-          <div className="flex flex-col gap-1 items-center break-words">
-            <HiCreditCard className='text-4xl text-[#ff8059]' />
-            <p className="font-bold text-2xl text-dark">3</p>
-            <h2 className="text-center font-light text-lightDark">Shopify Stores</h2>
+          <div className="flex flex-col font-serif text-lightDark leading-6 font-light pb-4 md:text-lg gap-4">
+            <p className=''>
+              My name is Quentin Gibson, a passionate developer with an unwavering commitment to excellence. My journey in the world of programming began in 2014 and since then, I have been immersing myself in coding challenges. Every day I make sure to spend time creating a meaningful commit in order to continously get better. I have maintained this commitment even though no one has hired me.
+            </p>
+            <p className="">As a developer, I believe that every line of code tells a story. I put emphasis on the clarity and maintainability of my code, ensuring that it can be easily understood by others. I make sure to follow famous programmers like celeberties in order to improve. How can you write better code if you dont read better code?</p>
+            <p className="">I am a black developer from a infamous low income town. Most people never look my way when looking for a programmer, but I love doing this. I have been coding for years waiting to break into the field as its my dream job.</p>
           </div>
         </div>
-        <div className="flex flex-col font-serif text-lightDark leading-6 font-light pb-4">
-          <p className='my-2'>
-            My name is Quentin Gibson, a passionate developer with an unwavering commitment to excellence. My journey in the world of programming began in 2014 and since then, I have been immersing myself in coding challenges. Every day I make sure to spend time creating a meaningful commit in order to continously get better. I have maintained this commitment even though no one has hired me.
-          </p>
-          <p className="my-2">As a developer, I believe that every line of code tells a story. I put emphasis on the clarity and maintainability of my code, ensuring that it can be easily understood by others. I make sure to follow famous programmers like celeberties in order to improve. How can you write better code if you dont read better code?</p>
-          <p className="my-2">I am a black developer from a infamous low income town. Most people never look my way when looking for a programmer, but I love doing this. I have been coding for years waiting to break into the field as its my dream job.</p>
-        </div>
+
+
         <Link to="/contact" prefetch="intent" className='inline-block mt-8 px-8 py-3 font-bold font-serif border-2 border-[#ff8059] rounded-lg hover:bg-[#ff8059] hover:scale-105 transition-all duration-150'>
           Contact Me
         </Link>

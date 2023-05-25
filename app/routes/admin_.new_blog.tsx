@@ -1,5 +1,5 @@
 import { Form, Link } from "@remix-run/react";
-import { BsArrowRight } from 'react-icons/bs'
+import { BsArrowLeft, BsArrowRight } from 'react-icons/bs'
 import draftCSS from "quill/dist/quill.snow.css";
 import { useQuill } from "react-quilljs";
 import { useEffect, useState } from "react";
@@ -35,9 +35,9 @@ export default function NewBlogRoute() {
 
   return (
     <main className="bg-cream py-8 px-4">
-      <Link to="admin" className="flex gap-1 items-center">
+      <Link to="/admin" className="flex gap-1 items-center">
+        <BsArrowLeft />
         <p className="py-4 text-lg">Back </p>
-        <BsArrowRight />
       </Link>
       <h1 className="text-5xl font-bold">New Blog</h1>
       <Form method="POST" className="mt-8" encType="multipart/form-data">

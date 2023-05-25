@@ -94,7 +94,7 @@ export const action = async ({ request, params }: DataFunctionArgs) => {
     invariant(typeof email === "string", "Email is invalid");
     invariant(email.includes("@"), "Email is invalid");
   } catch (error: any) {
-    return json({ error: { email: "Email is invalid. Please enter a valid name." } }, { status: 400, headers: { "Set-Cookie": await sessionStorage.commitSession(session) } })
+    return json({ error: { email: "Email is invalid. Please enter a valid email." } }, { status: 400, headers: { "Set-Cookie": await sessionStorage.commitSession(session) } })
   }
 
   try {

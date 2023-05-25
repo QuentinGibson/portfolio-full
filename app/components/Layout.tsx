@@ -70,13 +70,13 @@ export default function Layout({ children }: LayoutProps) {
       <footer className="border-t border-[#8c805e]">
         <div className="flex flex-col gap-4 bg-cream py-8 items-center font-serif text-center">
           <div className="flex gap-4 text-4xl ">
-            <Link to={"https://github.com/QuentinGibson"}>
+            <Link target="_blank" to={"https://github.com/QuentinGibson"}>
               <GrGithub />
             </Link>
-            <Link to={"https://twitter.com/quent_made_it"}>
+            <Link target="_blank" to={"https://twitter.com/quent_made_it"}>
               <GrTwitter />
             </Link>
-            <Link to={"https://www.youtube.com/channel/UCsX8Ahu9O9dmFyoV_fgoeaw"}>
+            <Link target="_blank" to={"https://www.youtube.com/channel/UCsX8Ahu9O9dmFyoV_fgoeaw"}>
               <GrYoutube />
             </Link>
           </div>
