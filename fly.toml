@@ -1,6 +1,7 @@
 app = "portfolio-full-f8ba"
 kill_signal = "SIGINT"
 kill_timeout = 5
+primary_region = "atl"
 processes = [ ]
 
 [experimental]
