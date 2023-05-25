@@ -1,141 +1,111 @@
-import type { V2_MetaFunction } from "@remix-run/node";
-import { Link } from "@remix-run/react";
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import Box from '~/components/Box';
+import { GrGithub, GrTwitter, GrYoutube } from 'react-icons/gr';
+import { HiChip, HiCreditCard, HiCubeTransparent, HiUsers } from 'react-icons/hi';
+import { Link } from '@remix-run/react';
 
-import { useOptionalUser } from "~/utils";
+export function meta({ matches }: { matches: any }) {
+  const rootMeta = matches[0].meta;
+  const title = rootMeta.find((m: any) => m.title)
+  return [
+    { title: title.title + " | Home" }
+  ]
+}
 
-export const meta: V2_MetaFunction = () => [{ title: "Remix Notes" }];
-
-export default function Index() {
-  const user = useOptionalUser();
+export default function IndexRoute() {
   return (
-    <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
-      <div className="relative sm:pb-16 sm:pt-8">
-        <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
-            <div className="absolute inset-0">
-              <img
-                className="h-full w-full object-cover"
-                src="https://user-images.githubusercontent.com/1500684/157774694-99820c51-8165-4908-a031-34fc371ac0d6.jpg"
-                alt="Sonic Youth On Stage"
-              />
-              <div className="absolute inset-0 bg-[color:rgba(254,204,27,0.5)] mix-blend-multiply" />
-            </div>
-            <div className="relative px-4 pb-8 pt-16 sm:px-6 sm:pb-14 sm:pt-24 lg:px-8 lg:pb-20 lg:pt-32">
-              <h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
-                <span className="block uppercase text-yellow-500 drop-shadow-md">
-                  Indie Stack
-                </span>
-              </h1>
-              <p className="mx-auto mt-6 max-w-lg text-center text-xl text-white sm:max-w-3xl">
-                Check the README.md file for instructions on how to get this
-                project deployed.
-              </p>
-              <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center">
-                {user ? (
-                  <Link
-                    to="/notes"
-                    className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-yellow-700 shadow-sm hover:bg-yellow-50 sm:px-8"
-                  >
-                    View Notes for {user.email}
-                  </Link>
-                ) : (
-                  <div className="space-y-4 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5 sm:space-y-0">
-                    <Link
-                      to="/join"
-                      className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-yellow-700 shadow-sm hover:bg-yellow-50 sm:px-8"
-                    >
-                      Sign up
-                    </Link>
-                    <Link
-                      to="/login"
-                      className="flex items-center justify-center rounded-md bg-yellow-500 px-4 py-3 font-medium text-white hover:bg-yellow-600"
-                    >
-                      Log In
-                    </Link>
-                  </div>
-                )}
+    <main className="relative h-full">
+      <div className='grid md:grid-cols-2'>
+        <section className='py-8 bg-cream md:order-2'>
+          <div className='relative flex justify-center'>
+            <img src="/img/nobg-me.png" className='object-fill w-full z-20' alt="A me smiling" />
+            <img className='absolute bottom-0 z-10 w-full' src="/img/art.svg" alt="" />
+          </div>
+        </section>
+        <section className="flex flex-col gap-2 w-full bg-cream py-8">
+          <div className='px-4'>
+            <h1 className="font-thin font-serif uppercase text-lightDark md:text-5xl">Fullstack Web Developer</h1>
+            <h2 className='text-6xl leading-[54px] text-dark md:text-9xl md:leading-none'>Quentin <br /> Gibson</h2>
+          </div>
+          <div className="flex flex-col">
+            <div className='ml-16 border-l border-dark pl-4 font-serif'>
+              <p className='leading-6 text-lightDark max-w-[300px] my-4 text-base md:text-2xl'>Im a fullstack developer based in College Park, Ga and I enjoy playing with React. I love video games, basketball, and music.</p>
+              <div className="flex gap-3 text-lightDark">
+                <Link to="https://github.com/QuentinGibson">
+                  <GrGithub className='text-4xl' />
+                </Link>
+                <Link to="https://twitter.com/quent_made_it">
+                  <GrTwitter className='text-4xl' />
+                </Link>
+                <Link to="https://www.youtube.com/channel/UCsX8Ahu9O9dmFyoV_fgoeaw">
+                  <GrYoutube className='text-4xl' />
+                </Link>
               </div>
-              <a href="https://remix.run">
-                <img
-                  src="https://user-images.githubusercontent.com/1500684/158298926-e45dafff-3544-4b69-96d6-d3bcc33fc76a.svg"
-                  alt="Remix"
-                  className="mx-auto mt-16 w-full max-w-[12rem] md:max-w-[16rem]"
-                />
-              </a>
+              <div className="flex flex-col my-8 md:text-2xl">
+                <p className='font-thin  text-lightDark'>Born In</p>
+                <h3 className='font-bold '>College Park, Ga</h3>
+              </div>
+              <div className="flex flex-col my-8 md:text-2xl">
+                <p className='font-thin text-lightDark'>Experience</p>
+                <h3 className='font-bold '>10+ years</h3>
+              </div>
+              <div className="flex flex-col my-8 md:text-2xl">
+                <p className='font-thin text-lightDark'>Birthday</p>
+                <h3 className='font-bold '>November 29</h3>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className="mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8">
-          <div className="mt-6 flex flex-wrap justify-center gap-8">
-            {[
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157764397-ccd8ea10-b8aa-4772-a99b-35de937319e1.svg",
-                alt: "Fly.io",
-                href: "https://fly.io",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157764395-137ec949-382c-43bd-a3c0-0cb8cb22e22d.svg",
-                alt: "SQLite",
-                href: "https://sqlite.org",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157764484-ad64a21a-d7fb-47e3-8669-ec046da20c1f.svg",
-                alt: "Prisma",
-                href: "https://prisma.io",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157764276-a516a239-e377-4a20-b44a-0ac7b65c8c14.svg",
-                alt: "Tailwind",
-                href: "https://tailwindcss.com",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157764454-48ac8c71-a2a9-4b5e-b19c-edef8b8953d6.svg",
-                alt: "Cypress",
-                href: "https://www.cypress.io",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157772386-75444196-0604-4340-af28-53b236faa182.svg",
-                alt: "MSW",
-                href: "https://mswjs.io",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157772447-00fccdce-9d12-46a3-8bb4-fac612cdc949.svg",
-                alt: "Vitest",
-                href: "https://vitest.dev",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157772662-92b0dd3a-453f-4d18-b8be-9fa6efde52cf.png",
-                alt: "Testing Library",
-                href: "https://testing-library.com",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157772934-ce0a943d-e9d0-40f8-97f3-f464c0811643.svg",
-                alt: "Prettier",
-                href: "https://prettier.io",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157772990-3968ff7c-b551-4c55-a25c-046a32709a8e.svg",
-                alt: "ESLint",
-                href: "https://eslint.org",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157773063-20a0ed64-b9f8-4e0b-9d1e-0b65a3d4a6db.svg",
-                alt: "TypeScript",
-                href: "https://typescriptlang.org",
-              },
-            ].map((img) => (
-              <a
-                key={img.href}
-                href={img.href}
-                className="flex h-16 w-32 justify-center p-1 grayscale transition hover:grayscale-0 focus:grayscale-0"
-              >
-                <img alt={img.alt} src={img.src} className="object-contain" />
-              </a>
-            ))}
+      </div>
+
+      <section className='py-8 bg-cream px-4'>
+        <h1 className='text-5xl text-dark mb-4 md:text-8xl md:mb-8'>About Me</h1>
+        <div className="grid grid-cols-2 gap-4 font-serif pb-4 md:grid-cols-4 md:pb-8">
+          <div className="flex flex-col gap-1 items-center break-words">
+            <HiUsers className='text-4xl text-[#ff8059]' />
+            <p className="font-bold text-2xl text-dark">10</p>
+            <h2 className="text-center font-light text-lightDark">Happy Customers</h2>
+          </div>
+          <div className="flex flex-col gap-1 items-center break-words">
+            <HiChip className='text-3xl text-[#ff8059]' />
+            <p className="font-bold text-2xl text-dark">1</p>
+            <h2 className="text-center font-light text-lightDark">Hackathons</h2>
+          </div>
+          <div className="flex flex-col gap-1 items-center break-words">
+            <HiCubeTransparent className='text-4xl text-[#ff8059]' />
+            <p className="font-bold text-2xl text-dark">4</p>
+            <h2 className="text-center font-light text-lightDark">Remix-Run Projects</h2>
+          </div>
+          <div className="flex flex-col gap-1 items-center break-words">
+            <HiCreditCard className='text-4xl text-[#ff8059]' />
+            <p className="font-bold text-2xl text-dark">3</p>
+            <h2 className="text-center font-light text-lightDark">Shopify Stores</h2>
           </div>
         </div>
-      </div>
+        <div className="flex flex-col font-serif text-lightDark leading-6 font-light pb-4">
+          <p className='my-2'>
+            My name is Quentin Gibson, a passionate developer with an unwavering commitment to excellence. My journey in the world of programming began in 2014 and since then, I have been immersing myself in coding challenges. Every day I make sure to spend time creating a meaningful commit in order to continously get better. I have maintained this commitment even though no one has hired me.
+          </p>
+          <p className="my-2">As a developer, I believe that every line of code tells a story. I put emphasis on the clarity and maintainability of my code, ensuring that it can be easily understood by others. I make sure to follow famous programmers like celeberties in order to improve. How can you write better code if you dont read better code?</p>
+          <p className="my-2">I am a black developer from a infamous low income town. Most people never look my way when looking for a programmer, but I love doing this. I have been coding for years waiting to break into the field as its my dream job.</p>
+        </div>
+        <Link to="/contact" prefetch="intent" className='inline-block mt-8 px-8 py-3 font-bold font-serif border-2 border-[#ff8059] rounded-lg hover:bg-[#ff8059] hover:scale-105 transition-all duration-150'>
+          Contact Me
+        </Link>
+        <div className='mt-8'>
+          <img className="max-w-[300px]" src="/img/signature.svg" alt="" />
+        </div>
+      </section>
+      {/* <Canvas>
+        <ambientLight intensity={0.1} />
+        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+        <pointLight position={[-10, -10, -10]} />
+        <Box position={[-1.2, 0, 0]} />
+        <Box position={[1.2, 0, 0]} />
+        <OrbitControls />
+      </Canvas>  */}
     </main>
   );
-}
+};
