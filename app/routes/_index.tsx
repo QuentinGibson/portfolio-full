@@ -102,14 +102,17 @@ export default function IndexRoute() {
           <img className="max-w-[300px] dark:invert dark:filter" src="/img/signature.svg" alt="" />
         </div>
       </section>
-      {/* <Canvas>
-        <ambientLight intensity={0.1} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-        <pointLight position={[-10, -10, -10]} />
-        <Box position={[-1.2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
-        <OrbitControls />
-      </Canvas>  */}
+      {/* <section className='h-[500px]'>
+        <Canvas className='h-[200px]'>
+          <ambientLight intensity={0.1} />
+          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+          <pointLight position={[-10, -10, -10]} />
+          <Box position={[-1.2, 0, 0]} />
+          <Box position={[1.2, 0, 0]} />
+          <OrbitControls />
+        </Canvas>
+      </section> */}
+
     </main>
   );
 };

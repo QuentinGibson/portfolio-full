@@ -1,17 +1,13 @@
-import { LoaderArgs, json } from "@remix-run/node";
+import type { LoaderArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { blogPost } from "~/models/blog.server";
+import invariant from "tiny-invariant";
+import { getPostBySlug } from "~/models/blog.server";
 
 export const loader = async ({ request, params }: LoaderArgs) => {
-  const post: blogPost = {
-    id: "1",
-    slug: "single-post",
-    title: "Exercise Regularly",
-    date: new Date(),
-    content: "It may seem counterintuitive, but regular exercise can actually boost your energy levels and enhance productivity. When you engage in physical activities, your body releases neurotransmitters that increase alertness and mental clarity. Regular exercise improves blood circulation, delivering oxygen and nutrients to the brain and other vital organs. This results in improved cognitive function and increased productivity. Furthermore, exercise promotes better sleep quality, which ensures you wake up refreshed and ready to tackle the day's tasks with increased efficiency.",
-    category: "Remix Run",
-    image: `https://picsum.photos/id/237/700/700`
-  }
+  const slug = params.slug
+  invariant(slug, "Please enter a slug!")
+  const post = await getPostBySlug(slug)
   return json({ post });
 };
 export default function BlogSlugRoute() {
@@ -33,7 +29,7 @@ export default function BlogSlugRoute() {
           <img src={post.image} alt="" />
         </div>
         <div className="flex my-6">
-          <p>{post.content}</p>
+          <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
         </div>
       </div>
     </main>

@@ -19,6 +19,7 @@ import stylesheet from "~/tailwind.css";
 import themeStylesheet from "~/theme.css";
 import { ThemeProvider, useTheme } from "./utils/theme-provider";
 import Layout from "./components/Layout";
+import { useEffect, useState } from "react";
 
 export function meta() {
   return [
@@ -46,6 +47,10 @@ export const loader = async ({ request }: LoaderArgs) => {
 function Body() {
   const [theme] = useTheme();
   const { message } = useLoaderData<typeof loader>();
+  const [visible, setVisible] = useState(true)
+  useEffect(() => {
+    setTimeout(() => setVisible(false), 5000)
+  })
   return (
     <html lang="en" className={clsx(theme)}>
       <head>
@@ -57,7 +62,7 @@ function Body() {
       <body className="h-full">
         <Layout>
           {message ? (
-            <div className="absolute px-4 py-2 font-bold bg-cream border dark:bg-slate-800 border-orange-700 flex justify-center"><p>{message}</p></div>
+            <div className={clsx("absolute px-4 py-2 font-bold bg-cream border dark:bg-slate-800 dark:border-slate-400 dark:text-slate-100 border-slate-400 flex justify-center", { "hidden": visible })}><p>{message}</p></div>
           ) : null}
           <Outlet />
         </Layout>

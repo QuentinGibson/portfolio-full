@@ -104,7 +104,7 @@ export const action = async ({ request, params }: DataFunctionArgs) => {
   const date = formData.get("date") as string;
   const dateObj = new Date(date)
   const content = formData.get("content") as string;
-  const publicIndex = image.filepath.indexOf("uploads")
+  const publicIndex = image.filepath.indexOf("uploads") - 1
   const category = formData.get("category") as string;
 
   const url = image.filepath.slice(publicIndex)

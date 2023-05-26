@@ -55,7 +55,7 @@ export const loader = async ({ request, params }: LoaderArgs) => {
 export default function ProjectsRoute() {
   const { projects } = useLoaderData<typeof loader>();
   return (
-    <main className="bg-cream dark:bg-slate-800">
+    <main className="bg-cream dark:bg-slate-800 my-8">
       <div className="max-w-screen-md mx-auto">
         <h1 className="text-5xl text-dark dark:text-slate-100 py-8 px-4">Projects</h1>
         <section className=" text-dark dark:text-slate-100">
