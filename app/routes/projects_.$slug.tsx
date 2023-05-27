@@ -20,7 +20,7 @@ export default function SingleProjectRoute() {
   const displayYear = dateObj.getFullYear();
   return (
     <main>
-      <h1 className="text-5xl text-dark bg-cream dark:bg-slate-800 py-8 px-4">{project.title}</h1>
+      <h1 className="text-5xl text-dark bg-cream dark:bg-slate-800 dark:text-slate-100 py-8 px-4">{project.title}</h1>
       <section className="bg-cream dark:bg-slate-800 text-dark dark:text-slate-100 font-serif px-4">
         <div className="flex flex-col gap-10">
           <div className="flex gap-8">
@@ -30,8 +30,8 @@ export default function SingleProjectRoute() {
             </div>
           </div>
           <div className="flex flex-col">
-            <p className="text-lightDark font-thin">Categories</p>
-            <span className="font-bold text-dark leading-6">{project.type}</span>
+            <p className="text-lightDark dark:text-slate-300 font-thin">Categories</p>
+            <span className="font-bold text-dark leading-6 dark:text-slate-100">{project.type}</span>
           </div>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function SingleProjectRoute() {
       </div>
 
       <section className="bg-cream px-4 dark:bg-slate-800 pb-8">
-        <h1 className="font-bold text-2xl">Project Details</h1>
+        <h1 className="font-bold text-2xl dark:text-slate-100">Project Details</h1>
         <div className="mt-8">
-          <div dangerouslySetInnerHTML={{ __html: project.content }} className="font-thin text-lightDark font-serif">
+          <div dangerouslySetInnerHTML={{ __html: project.content }} className="dark:text-slate-300 text-lightDark font-serif">
           </div>
         </div>
         <div className="grid gap-8 py-8 md:grid-cols-3">

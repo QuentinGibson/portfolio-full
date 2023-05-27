@@ -3,7 +3,7 @@ html.light{
 }
 
 html.dark {
-  background-color: black;
+  background-color: #1e293b;
 }
 @font-face {
   font-family: 'Sorts Mill Goudy';

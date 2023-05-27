@@ -17,11 +17,11 @@ export default function BlogSlugRoute() {
   return (
     <main>
       <section className="flex flex-col gap-4 px-4">
-        <h1 className="text-5xl text-dark mt-12 mb-4">{post.title}</h1>
-        <span className="flex gap-1 font-serif">
+        <h1 className="text-5xl text-dark dark:text-slate-100 mt-12 mb-4">{post.title}</h1>
+        <span className="flex gap-1 font-serif dark:text-slate-300">
           <span className="font-bold text-[#ff8059]">{post.category}</span>
           /
-          <span className="text-lightDark font-thin">{displayDate}</span>
+          <span className="text-lightDark dark:text-slate-300 font-thin">{displayDate}</span>
         </span>
       </section>
       <div className="mt-8 px-4">
@@ -29,7 +29,7 @@ export default function BlogSlugRoute() {
           <img src={post.image} alt="" />
         </div>
         <div className="flex my-6">
-          <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+          <div className="dark:text-slate-100" dangerouslySetInnerHTML={{ __html: post.content }}></div>
         </div>
       </div>
     </main>

@@ -27,7 +27,7 @@ function Post({ blogPost }: { blogPost: any }) {
 
   return (
     <article className={'flex flex-col relative overflow-hidden'}>
-      <div className="absolute before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-full before:h-full before:bg-[#ebe7e0] before:opacity-[.85] h-full w-full">
+      <div className="absolute before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-full before:h-full before:bg-[#ebe7e0] before:dark:bg-[#1e293b] before:opacity-[.85] h-full w-full">
         <img src={blogPost.image} className="h-full w-full object-cover" alt="" />
       </div>
       <div className="px-4 flex flex-col gap-6 py-8">
