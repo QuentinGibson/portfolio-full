@@ -41,7 +41,7 @@ function Post({ blogPost }: { blogPost: any }) {
           </Link>
         </div>
         <div className="flex z-10">
-          <p>{trimContent(content)}</p>
+          <div dangerouslySetInnerHTML={{ __html: trimContent(content) }}></div>
         </div>
         <div className="flex z-10">
           <Link prefetch="intent" className="text-[#ff8059] font-bold font-serif underline-offset-2 hover:underline" to={`/blog/${blogPost.slug}`}>Read More</Link>
