@@ -1,5 +1,6 @@
-import { DataFunctionArgs, LoaderArgs } from "@remix-run/node";
-import {requireUser, getSession} from '~/session.server'
+import { DataFunctionArgs, LoaderArgs, unstable_parseMultipartFormData, unstable_createFileUploadHandler
+, unstable_createMemoryUploadHandler, unstable_composeUploadHandlers, redirect} from "@remix-run/node";
+import {requireUser, getSession, sessionStorage} from '~/session.server'
 import { Form, useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { useQuill } from "react-quilljs";
@@ -90,7 +91,7 @@ export const action = async ({ request, params }: DataFunctionArgs) => {
   const uploadHandler = unstable_composeUploadHandlers(
     unstable_createFileUploadHandler({
       maxPartSize: 5_000_000,
-      directory: "./public/uploads/project",
+      directory: "./public/uploads/posts",
       avoidFileConflicts: true,
       file: ({ filename }) => filename,
     }),
@@ -101,23 +102,17 @@ export const action = async ({ request, params }: DataFunctionArgs) => {
     request,
     uploadHandler
   );
-
   const image = formData.get("image") as any
-  const photos = formData.getAll("photos") as any[]
   const title = formData.get("title") as string;
   const slug = formData.get("slug") as string;
   const date = formData.get("date") as string;
   const dateObj = new Date(date)
   const content = formData.get("content") as string;
   const publicIndex = image.filepath.indexOf("uploads") - 1
-  const link = formData.get("link") as string;
-  const type = formData.get("type") as string;
+  const category = formData.get("category") as string;
   const id = formData.get("id") as string;
 
   const url = image.filepath.slice(publicIndex)
-  if (photos) {
-    const galleryList = photos.map(photo => photo.filepath.slice(publicIndex))
-  }
 
   await updatePost(id, {
     image: url,
@@ -125,12 +120,10 @@ export const action = async ({ request, params }: DataFunctionArgs) => {
     slug,
     content,
     date: dateObj,
-    type,
-    link,
-    photos: galleryList
+    category,
   })
 
-  session.flash("globalMessage", "Post created sucessfully!")
-  return redirect("/projects", { headers: { "Set-Cookie": await sessionStorage.commitSession(session) } })
+  session.flash("globalMessage", "Post updated sucessfully!")
+  return redirect("/blog", { headers: { "Set-Cookie": await sessionStorage.commitSession(session) } })
 
 };

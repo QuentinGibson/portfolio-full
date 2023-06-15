@@ -30,6 +30,16 @@ export async function getProjects() {
   return projects
 }
 
+export async function updateProject(id:string, data: any) {
+  try {
+    const project = await prisma.project.update({ where: {id}, data})
+    return project
+  } catch(e) {
+    throw new Error("There was a problem updating your project.\n Error: " + e.message)
+  }
+  
+}
+
 export async function getProjectBySlug(slug:string) {
   const project = await prisma.project.findUnique({ where: { slug }, include: {photos: true} })
   if (!project) {
