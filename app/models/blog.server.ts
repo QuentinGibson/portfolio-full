@@ -29,3 +29,10 @@ export async function getPosts() {
   }
   return posts
 }
+
+export async function updatePost(id: string, data: any) {
+  const posts = await prisma.post.update({
+    where: {id},
+    data
+  })
+}
