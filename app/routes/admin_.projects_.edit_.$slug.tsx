@@ -21,7 +21,7 @@ export function meta({ matches }: { matches: any }) {
 }
 
 export const loader = async ({ request, params }: LoaderArgs) => {
-  const user = requireUser(request)
+  const user = await requireUser(request)
   if (user.role !== "ADMIN") {
     redirect("/")
   } 

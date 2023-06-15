@@ -34,7 +34,7 @@ export async function updateProject(id:string, data: any) {
   try {
     const project = await prisma.project.update({ where: {id}, data})
     return project
-  } catch(e) {
+  } catch(e: any) {
     throw new Error("There was a problem updating your project.\n Error: " + e.message)
   }
   
